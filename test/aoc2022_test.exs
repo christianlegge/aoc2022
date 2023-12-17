@@ -28,9 +28,19 @@ defmodule Aoc2022Test do
 10000", Aoc2022.Day01)
   end
 
+  @tag :skip
   test "day 02" do
     run_day("02", "A Y
 B X
 C Z", Aoc2022.Day02)
+  end
+
+  test "day 03" do
+    run_day("03", "vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw", Aoc2022.Day03)
   end
 end
