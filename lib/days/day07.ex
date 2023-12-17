@@ -12,10 +12,8 @@ defmodule Aoc2022.Day07 do
           dirs
 
         String.starts_with?(instr, "$ cd ..") ->
-          IO.inspect(cwd)
           parent_dir = cwd |> String.split("/") |> Enum.drop(-2) |> Enum.join("/")
 
-          IO.inspect(parent_dir)
           process_instructions(rest, dirs, parent_dir <> "/")
 
         String.starts_with?(instr, "$ cd /") ->
@@ -50,8 +48,6 @@ defmodule Aoc2022.Day07 do
   end
 
   def get_object_size({name, sizetype}, parent, dirs) do
-    IO.inspect({name, sizetype})
-
     case sizetype do
       "dir" -> get_dir_size(parent <> name <> "/", dirs)
       _ -> sizetype |> Integer.parse() |> elem(0)
@@ -67,7 +63,27 @@ defmodule Aoc2022.Day07 do
     instrs = String.split(input, "\n") |> Enum.filter(fn s -> String.trim(s) != "" end)
     dirs = process_instructions(instrs, %{}, "/")
     IO.inspect(dirs)
-    sizes = Map.keys(dirs) |> Enum.map(&get_dir_size(&1, dirs))
-    IO.inspect(sizes |> Enum.filter(fn el -> el <= 100_000 end) |> Enum.sum())
+    sizes = Map.keys(dirs) |> Enum.map(fn k -> {k, get_dir_size(k, dirs)} end)
+
+    used_space =
+      sizes |> Enum.filter(fn {dir, _size} -> dir == "/" end) |> List.first() |> elem(1)
+
+    delete_needed = used_space - 40_000_000
+    IO.inspect(delete_needed)
+
+    IO.inspect(
+      sizes
+      |> Enum.filter(fn {_dir, size} -> size <= 100_000 end)
+      |> Enum.map(&elem(&1, 1))
+      |> Enum.sum()
+    )
+
+    IO.inspect(
+      sizes
+      |> Enum.filter(fn {_dir, size} -> size >= delete_needed end)
+      |> IO.inspect()
+      |> Enum.map(&elem(&1, 1))
+      |> Enum.min()
+    )
   end
 end
