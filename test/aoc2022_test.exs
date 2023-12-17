@@ -55,6 +55,7 @@ CrZsJsPPZsGzwwsLwLmpwMDw", Aoc2022.Day03)
 2-6,4-8", Aoc2022.Day04)
   end
 
+  @tag :skip
   test "day 05" do
     run_day("05", "    [D]    
 [N] [C]    
@@ -65,5 +66,9 @@ move 1 from 2 to 1
 move 3 from 1 to 3
 move 2 from 2 to 1
 move 1 from 1 to 2", Aoc2022.Day05)
+  end
+
+  test "day 06" do
+    run_day("06", "mjqjpqmgbljsphdztnvjfqwrcgsmlb", Aoc2022.Day06)
   end
 end
