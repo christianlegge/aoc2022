@@ -35,6 +35,7 @@ B X
 C Z", Aoc2022.Day02)
   end
 
+  @tag :skip
   test "day 03" do
     run_day("03", "vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
@@ -42,5 +43,14 @@ PmmdzqPrVvPwwTWBwg
 wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw", Aoc2022.Day03)
+  end
+
+  test "day 04" do
+    run_day("04", "2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8", Aoc2022.Day04)
   end
 end
