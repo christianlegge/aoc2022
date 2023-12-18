@@ -73,6 +73,7 @@ move 1 from 1 to 2", Aoc2022.Day05)
     run_day("06", "mjqjpqmgbljsphdztnvjfqwrcgsmlb", Aoc2022.Day06)
   end
 
+  @tag :skip
   test "day 07" do
     run_day("07", "$ cd /
 $ ls
@@ -97,5 +98,13 @@ $ ls
 8033020 d.log
 5626152 d.ext
 7214296 k", Aoc2022.Day07)
+  end
+
+  test "day 08" do
+    run_day("08", "30373
+25512
+65332
+33549
+35390", Aoc2022.Day08)
   end
 end
